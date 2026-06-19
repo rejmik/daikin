@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "title": "Daikin – Weather Dynamic 300x600",
+  "description": "Dynamický banner Daikin. Podle počasí (GeoJS + OpenWeatherMap) přepíná horkou a chladnou variantu. Stejná animace, mění se copy a barevnost.",
+  "width": 300,
+  "height": 600,
+  "events": {
+    "enabled": 0,
+    "list": {}
+  },
+  "clicktags": {
+    "clickTAG": "https://www.daikin.cz/"
+  },
+  "source": "banner.html"
+}

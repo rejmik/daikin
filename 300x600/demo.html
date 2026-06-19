@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daikin – ukázka dynamického banneru (živé počasí)</title>
+<style>
+  body{margin:0;background:#101418;color:#e8eaed;font-family:'Segoe UI',Arial,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 16px}
+  h1{font-size:20px;font-weight:600;margin:0 0 6px;text-align:center}
+  p{color:#9aa0a6;font-size:13px;max-width:560px;text-align:center;line-height:1.55;margin:0 0 22px}
+  .frame{border:1px solid #2a2f35;border-radius:8px;overflow:hidden;background:#000}
+  iframe{width:300px;height:740px;border:0;display:block}
+  .note{color:#6b7177;font-size:11px;margin-top:18px;max-width:560px;text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+  <h1>Daikin – dynamický banner 300×600</h1>
+  <p>Banner sám zjistí vaši polohu (podle IP) a aktuální teplotu, a podle toho zvolí variantu: při ≥&nbsp;28&nbsp;°C „horko“, jinak „chládek“. Pod bannerem je vypsáno, co služby vrátily, a přepínač HOT&nbsp;/&nbsp;COLD&nbsp;/&nbsp;AUTO pro ruční vyzkoušení obou variant.</p>
+  <div class="frame">
+    <iframe src="banner.html?debug=1&key=a9b882afbff1d9d1cd1efe04401dfe00" title="Daikin banner 300x600"></iframe>
+  </div>
+  <div class="note">Ukázka pro testování. Rozhodování řídí API OpenWeatherMap (počasí) a GeoJS (poloha podle IP). V ostré kampani v Adformu se varianta vybírá stejně, jen bez tohoto výpisu a přepínače.</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Daikin banner – náhled 300x600</title>
+<style>
+  body{margin:0;background:#101418;color:#e8eaed;font-family:'Segoe UI',Arial,sans-serif;padding:28px}
+  h1{font-size:18px;font-weight:600;margin:0 0 4px}
+  p{color:#9aa0a6;font-size:13px;margin:0 0 24px;max-width:760px;line-height:1.5}
+  .row{display:flex;gap:32px;flex-wrap:wrap}
+  .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .label{font-size:13px;font-weight:600;color:#cfd3d7}
+  .sub{font-size:11px;color:#80868b;margin-top:-6px}
+  iframe{width:300px;height:600px;border:1px solid #2a2f35;border-radius:6px;background:#000}
+</style>
+</head>
+<body>
+  <h1>Daikin — dynamický banner 300×600 (náhled)</h1>
+  <p>3 slidy: (1) oranžová heatmapa + headline, (2) modrá heatmapa + produkt + CTA, (3) modrá heatmapa + 3 produkty naskáčou za sebou + CTA. Stejná animace pro obě varianty, mění se jen copy podle teploty (práh 28&nbsp;°C). „Horko“ a „Chlad“ jsou vynucené režimy pro kontrolu. „Živé počasí“ zkusí GeoJS + OpenWeatherMap; bez aktivního klíče spadne do horké varianty. Pro test s reálným počasím přidej do URL iframu <code>?key=TVŮJ_KLÍČ</code>.</p>
+  <div class="row">
+    <div class="col">
+      <div class="label">Horko — emocionální (≥ 28 °C)</div>
+      <iframe src="300x600/banner.html?mode=hot" title="hot"></iframe>
+    </div>
+    <div class="col">
+      <div class="label">Chlad — racionální (&lt; 28 °C)</div>
+      <iframe src="300x600/banner.html?mode=cold" title="cold"></iframe>
+    </div>
+    <div class="col">
+      <div class="label">Živé počasí</div>
+      <div class="sub">vyžaduje OWM klíč, jinak = horko</div>
+      <iframe src="300x600/banner.html" title="live"></iframe>
+    </div>
+  </div>
+</body>
+</html>
