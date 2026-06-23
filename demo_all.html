@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daikin – dynamické bannery (všechny rozměry)</title>
+<style>
+  body{margin:0;background:#101418;color:#e8eaed;font-family:'Segoe UI',Arial,sans-serif;padding:24px}
+  header{position:sticky;top:0;z-index:10;background:#101418;padding:6px 0 16px;margin-bottom:8px;
+    border-bottom:1px solid #23282e}
+  h1{font-size:19px;font-weight:600;margin:0 0 4px}
+  p{color:#9aa0a6;font-size:13px;margin:0 0 14px;max-width:760px;line-height:1.5}
+  .sw{display:inline-flex;gap:6px}
+  .sw button{padding:9px 20px;border:1px solid #2f343b;background:#1b2127;color:#cfd3d7;
+    font:600 13px 'Segoe UI',Arial;border-radius:6px;cursor:pointer}
+  .sw button.on{background:#0097E0;border-color:#0097E0;color:#fff}
+  .grid{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+  .item{display:flex;flex-direction:column;gap:8px}
+  .label{font-size:12px;font-weight:600;color:#cfd3d7}
+  iframe{border:1px solid #2a2f35;border-radius:6px;background:#000;display:block}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Daikin – dynamické bannery</h1>
+    <p>Všech 5 rozměrů najednou. Přepínač řídí všechny zároveň: HOT / COLD vynutí variantu, AUTO zjistí reálné počasí (GeoJS + OpenWeatherMap) podle vaší polohy a vybere variantu samo. V ostré kampani v Adformu probíhá výběr stejně.</p>
+    <div class="sw" id="sw">
+      <button data-m="hot">HOT</button>
+      <button data-m="cold">COLD</button>
+      <button data-m="auto">AUTO</button>
+    </div>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+<script>
+  var KEY='a9b882afbff1d9d1cd1efe04401dfe00';
+  var BANNERS=[['300x250',300,250],['300x300',300,300],['480x300',480,300],['480x480',480,480],['300x600',300,600]];
+  var mode='auto';
+
+  var grid=document.getElementById('grid');
+  BANNERS.forEach(function(b){
+    var dir=b[0], w=b[1], h=b[2];
+    var item=document.createElement('div'); item.className='item';
+    var lab=document.createElement('div'); lab.className='label'; lab.textContent=dir+' px';
+    var f=document.createElement('iframe'); f.className='bn'; f.width=w; f.height=h;
+    f.setAttribute('data-dir',dir); f.title='Daikin '+dir;
+    item.appendChild(lab); item.appendChild(f); grid.appendChild(item);
+  });
+
+  function srcFor(dir){ return dir+'/banner.html'+(mode==='auto'?('?key='+KEY):('?mode='+mode))+'&_t='+Date.now(); }
+  function render(){
+    [].forEach.call(document.querySelectorAll('iframe.bn'),function(f){ f.src=srcFor(f.getAttribute('data-dir')); });
+    [].forEach.call(document.querySelectorAll('#sw button'),function(b){ b.classList.toggle('on', b.getAttribute('data-m')===mode); });
+  }
+  document.getElementById('sw').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return; mode=b.getAttribute('data-m'); render();
+  });
+  render();
+</script>
+</body>
+</html>

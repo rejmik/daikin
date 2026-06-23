@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "title": "Daikin – Weather Dynamic 300x600",
+  "title": "Daikin – Weather Dynamic 300x250",
   "description": "Dynamický banner Daikin. Podle počasí (GeoJS + OpenWeatherMap) přepíná horkou a chladnou variantu. Stejná animace, mění se copy a barevnost.",
   "width": 300,
-  "height": 600,
+  "height": 250,
   "events": {
     "enabled": 0,
     "list": {}
